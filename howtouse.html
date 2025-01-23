@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MAESTRO</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/maestro.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <script src="javascript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+<body class="container bg-dark">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="https://github.com/rfps09" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <span class="fs-4 text-white">RFPS09</span>
+        </a>
+
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="index.html" class="nav-link text-white" aria-current="page">Página Inicial</a></li>
+            <li class="nav-item"><a href="" class="nav-link text-black bg-white active">Como Usar?</a></li>
+        </ul>
+    </header>
+
+    <div class="d-flex justify-content-center">
+        <main class="col-md-12 p-2 px-4 bg-white border border-white border-5 rounded">
+            <h1>Como Usar?</h1>
+            <p>
+                O maestro converte a linguagem natural do usuário em comandos 
+                de busca REGEX para utilização em bancos de dados como o PostgreSQL. 
+                Ele cria uma expressão regular a partir da entrada do usuário, 
+                visando identificar padrões específicos em um texto.
+                <br>
+                <strong>Exemplo:</strong>
+                <br>
+                &emsp;<strong>Entrada:</strong> "Número & (Telefone, Celular)"
+                <br>
+                &emsp;<strong>Saída:</strong> "^((?=.*(NUMERO))((?=.*(TELEFONE))|(?=.*(CELULAR))))"
+            </p>
+
+            <h4>PostgreSQL:</h4>
+            <p>
+                &emsp;<strong>Exemplo de uso do REGEX:</strong>
+                <br>
+                &emsp;&emsp;<strong>Exemplo-1:</strong> A string corresponde a expressão regular, diferenciando maiúsculas de minúsculas
+                <br>
+                &emsp;&emsp;&emsp;select *
+                <br>
+                &emsp;&emsp;&emsp;from [TABELA]
+                <br>
+                &emsp;&emsp;&emsp;where [COLUNA] ~ '[REGEX]'
+                <br>
+                &emsp;&emsp;<strong>Exemplo-2:</strong> A string corresponde a expressão regular, sem distinção entre maiúsculas e minúsculas
+                <br>
+                &emsp;&emsp;&emsp;select *
+                <br>
+                &emsp;&emsp;&emsp;from [TABELA]
+                <br>
+                &emsp;&emsp;&emsp;where [COLUNA] ~* '[REGEX]'
+                <br>
+                &emsp;&emsp;<strong>Exemplo-3:</strong> A sequência de caracteres não corresponde à expressão regular, diferencia maiúsculas de minúsculas
+                <br>
+                &emsp;&emsp;&emsp;select *
+                <br>
+                &emsp;&emsp;&emsp;from [TABELA]
+                <br>
+                &emsp;&emsp;&emsp;where [COLUNA] !~ '[REGEX]'
+                <br>
+                &emsp;&emsp;<strong>Exemplo-4:</strong> A sequência de caracteres não corresponde à expressão regular, sem distinção entre maiúsculas e minúsculas
+                <br>
+                &emsp;&emsp;&emsp;select *
+                <br>
+                &emsp;&emsp;&emsp;from [TABELA]
+                <br>
+                &emsp;&emsp;&emsp;where [COLUNA] !~* '[REGEX]'
+            </p>
+    
+            <h4>Operadores:</h4>
+            <p>
+                &emsp;Os operadores lógicos suportados pelo Maestro são o "E" e o "OU".
+                <br>
+                &emsp;<strong>Operador "E":</strong>
+                <br>
+                &emsp;&emsp;Para usar o operador "E" no Maestro, 
+                apenas precisa separar os termos de busca usando o &(E comercial).
+                <br>
+                &emsp;&emsp;<strong>Exemplo:</strong> Queremos buscar documentos que possuam a palavra 
+                "telefone" E "celular" no texto.
+                <br>
+                &emsp;&emsp;&emsp;<strong>Entrada:</strong> "Telefone & Celular"
+                <br>
+                &emsp;&emsp;&emsp;<strong>Saída:</strong> "^((?=.*(TELEFONE))(?=.*(CELULAR)))"
+                <br>
+                &emsp;<strong>Operador "OU":</strong>
+                <br>
+                &emsp;&emsp;Para usar o operador "OU" no Maestro, 
+                apenas precisa separar os termos de busca usando vírgula(,).
+                <br>
+                &emsp;&emsp;<strong>Exemplo:</strong> Queremos buscar documentos que possuam a palavra 
+                "telefone" OU "celular" no texto.
+                <br>
+                &emsp;&emsp;&emsp;<strong>Entrada:</strong> "Telefone, Celular"
+                <br>
+                &emsp;&emsp;&emsp;<strong>Saída:</strong> "^((?=.*(TELEFONE))|(?=.*(CELULAR)))"
+            </p>
+    
+            <h4>Curingas:</h4>
+            <p>
+                &emsp;Os curingas suportados pelo Maestro são o "%" e o "_".
+                <br>
+                &emsp;<strong>Curinga "%":</strong>
+                <br>
+                &emsp;&emsp;O curinga de porcentagem(%) representa zero, um ou vários caracteres. 
+                Porém diferente do operador "LIKE" do PostgreSQL, as expressões regulares não 
+                precisam indicar que podem vir um ou mais caracteres antes ou depois do termo 
+                buscado. O principal uso desse curinga se dá quando queremos indicar que podem 
+                ter zero, um ou vários caracteres no meio do termo buscado.
+                <br>
+                &emsp;&emsp;<strong>Exemplo:</strong> Queremos buscar documentos que possuam o nome "Rafael", 
+                mas não sabemos se no documeto tá escrito "Raphael" ou "Rafael" no texto.
+                <br>
+                &emsp;&emsp;&emsp;<strong>Entrada:</strong> "Ra%ael"
+                <br>
+                &emsp;&emsp;&emsp;<strong>Saída:</strong> "^((?=.*(RA.*AEL)))"
+                <br>
+                &emsp;<strong>Curinga "_":</strong>
+                <br>
+                &emsp;&emsp;O curinga de sublinhado(_) representa zero ou um caractere. 
+                O principal uso desse curinga se dá quando queremos indicar que pode 
+                ter ou não um caractere no meio do termo buscado.
+                <br>
+                &emsp;&emsp;<strong>Exemplo:</strong> Queremos buscar documentos que possuam o 
+                número de telefone 9898-5454, mas não sabemos se no documento está escrito com
+                ou sem hífen.
+                <br>
+                &emsp;&emsp;&emsp;<strong>Entrada:</strong> "9898_5454"
+                <br>
+                &emsp;&emsp;&emsp;<strong>Saída:</strong> "^((?=.*(9898.?5454)))"
+            </p>
+    
+            <h4>Sigla:</h4>
+            <p>
+                &emsp;O maestro reserva os caracteres "{}" para indicar que o termo não pode 
+                está entre caracteres de letras e números. O principal uso desse recurso se 
+                dá quando queremos encontrar uma sigla no documento.
+                <br>
+                &emsp;&emsp;<strong>Exemplo:</strong> Queremos buscar documentos que possuam 
+                a sigla "PA" de Pará, mas não queremos retornar documentos que contenham termos 
+                como "Papel", "Pato", "Parque" e "Pastel", sem que o documentos tenha a sigla 
+                "PA" presente no corpo do documento.
+                <br>
+                &emsp;&emsp;&emsp;<strong>Entrada:</strong> "{PA}"
+                <br>
+                &emsp;&emsp;&emsp;<strong>Saída:</strong> "^((?=.*(\bPA\b)))"
+            </p>
+
+            <h4>Agrupadores:</h4>
+            <p>
+                &emsp;O maestro reserva os caracteres "()" para definir a ordem de precedência 
+                das operações em uma expressão lógica. Eles ajudam a agrupar partes específicas 
+                da expressão para garantir que essas partes sejam avaliadas juntas antes das 
+                outras. Isso é especialmente útil quando você tem uma expressão complexa com 
+                múltiplos operadores lógicos, como "E" e "OU".
+                <br>
+                &emsp;&emsp;<strong>Exemplo:</strong> Queremos buscar documentos que possuam 
+                o termo "Número" e "Telefone" ou "Celular", ou seja, queremos encontrar 
+                tanto "Número de Telefone" quanto "Número de Celular", mas não queremos apenas
+                "Número". Para isso podemos fonercer duas entradas que retornam os mesmos documentos.
+                <br>
+                &emsp;&emsp;&emsp;<strong>Entrada-1:</strong> "(Número & Telefone), (Número & Celular)"
+                <br>
+                &emsp;&emsp;&emsp;<strong>Saída-1:</strong> "^(((?=.*(NUMERO))(?=.*(TELEFONE)))|((?=.*(NUMERO))(?=.*(CELULAR))))"
+                <br><br>
+                &emsp;&emsp;&emsp;<strong>Entrada-2:</strong> "Número & (Telefone, Celular)"
+                <br>
+                &emsp;&emsp;&emsp;<strong>Saída-2:</strong> "^((?=.*(NUMERO))((?=.*(TELEFONE))|(?=.*(CELULAR))))"
+            </p>
+        </main>
+    </div>
+
+    <footer class="pt-2 mt-3">
+        <p class="text-center text-white">Desenvolvido por <a href="https://github.com/rfps09" class="text-white">@rfps09</a>.</p>
+    </footer>
+</body>
+</html>
