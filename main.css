@@ -16,3 +16,8 @@
     color: white;
     text-align: center;
 }
+
+.cp-btn {
+    border:0;
+    background:transparent;
+}

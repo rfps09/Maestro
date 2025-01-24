@@ -1,3 +1,20 @@
+function copyText(id) {
+    // Get the text field
+    console.log('Teste')
+    var copyText = document.getElementById(id);
+    console.log(copyText)
+
+    // Select the text field
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile devices
+
+        // Copy the text inside the text field
+    navigator.clipboard.writeText(copyText.value);
+
+    // Alert the copied text
+    alert("Copied the text: " + copyText.value);
+}
+
 function strip_deque(deque) {
     while(deque && deque[0] == ' ')
         deque.shift();
@@ -70,5 +87,5 @@ function myFunction() {
     deque = [];
     regex = '^('.concat(regex, ')');
     if(pilha.length > 0 || regex.length <= 3) document.getElementById("saida").innerHTML = "<strong>Erro:</strong> Entrada mal formatada";
-    else document.getElementById("saida").innerHTML = "<strong>Seu REGEX:</strong> " + regex;
+    else document.getElementById("saida").innerHTML = "<strong>REGEX:</strong> " + regex;
 }
