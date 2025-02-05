@@ -41,8 +41,7 @@
             </p>
 
             <h4>PostgreSQL:</h4>
-            <p>
-                &emsp;<strong>Exemplo de uso do REGEX:</strong>
+                &emsp;<strong>Exemplos de uso do REGEX:</strong>
                 <br>
                 &emsp;&emsp;<strong>Exemplo-1:</strong> O texto corresponde ao REGEX, diferenciando maiúsculas de minúsculas.
                 <br>
@@ -55,7 +54,7 @@
                             </svg>
                         </button>
                     </div>
-                    <div class="bg-body-secondary px-3 py-1">
+                    <div class="bg-body-secondary px-3 py-1 position-relative">
                         <code>
                             <strong>
                                 select <span style="color: black;">*</span>
@@ -65,44 +64,104 @@
                                 where <span style="color: black;">[COLUNA] ~ </span> <span style="color: brown;">'[REGEX]'</span>
                             </strong>
                         </code>
+                        <div id="sql-1-copied" class="position-absolute top-0 end-0 px-1 m-1 text-white rounded-1" style="background-color: #1b1b1b;" hidden>
+                            <small><tt>copied!</tt></small>
+                        </div>
                     </div>
-                    <pre id="sql-1" style="display: none;">
-select *
+<pre id="sql-1" style="display: none;">select *
 from [TABELA]
-where [COLUNA] ~ '[REGEX]'
-                    </pre>
+where [COLUNA] ~ '[REGEX]'</pre>
                 </div>
                 <br>
                 &emsp;&emsp;<strong>Exemplo-2:</strong> O texto corresponde ao REGEX, sem distinção entre maiúsculas e minúsculas.
                 <br>
-                <code>
-                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;select *
-                    <br>
-                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;from [TABELA]
-                    <br>
-                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;where [COLUNA] ~* '[REGEX]'
-                </code>
+                <div class="code-example ms-5 col-4">
+                    <div class="d-flex justify-content-between bg-secondary-subtle px-3 py-0 border-bottom border-dark-subtle">
+                        <strong><small>SQL</small></strong>
+                        <button type="button" class="cp-btn" onclick="copyText('sql-2')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="bg-body-secondary px-3 py-1 position-relative">
+                        <code>
+                            <strong>
+                                select <span style="color: black;">*</span>
+                                <br>
+                                from <span style="color: black;">[TABELA]</span>
+                                <br>
+                                where <span style="color: black;">[COLUNA] ~* </span> <span style="color: brown;">'[REGEX]'</span>
+                            </strong>
+                        </code>
+                        <div id="sql-2-copied" class="position-absolute top-0 end-0 px-1 m-1 text-white rounded-1" style="background-color: #1b1b1b;" hidden>
+                            <small><tt>copied!</tt></small>
+                        </div>
+                    </div>
+<pre id="sql-2" style="display: none;">select *
+from [TABELA]
+where [COLUNA] ~* '[REGEX]'</pre>
+                </div>
                 <br>
                 &emsp;&emsp;<strong>Exemplo-3:</strong> O texto não corresponde ao REGEX, diferenciando maiúsculas de minúsculas.
                 <br>
-                <code>
-                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;select *
-                    <br>
-                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;from [TABELA]
-                    <br>
-                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;where [COLUNA] !~ '[REGEX]'
-                </code>
+                <div class="code-example ms-5 col-4">
+                    <div class="d-flex justify-content-between bg-secondary-subtle px-3 py-0 border-bottom border-dark-subtle">
+                        <strong><small>SQL</small></strong>
+                        <button type="button" class="cp-btn" onclick="copyText('sql-3')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="bg-body-secondary px-3 py-1 position-relative">
+                        <code>
+                            <strong>
+                                select <span style="color: black;">*</span>
+                                <br>
+                                from <span style="color: black;">[TABELA]</span>
+                                <br>
+                                where <span style="color: black;">[COLUNA] !~ </span> <span style="color: brown;">'[REGEX]'</span>
+                            </strong>
+                        </code>
+                        <div id="sql-3-copied" class="position-absolute top-0 end-0 px-1 m-1 text-white rounded-1" style="background-color: #1b1b1b;" hidden>
+                            <small><tt>copied!</tt></small>
+                        </div>
+                    </div>
+<pre id="sql-3" style="display: none;">select *
+from [TABELA]
+where [COLUNA] !~ '[REGEX]'</pre>
+                </div>
                 <br>
                 &emsp;&emsp;<strong>Exemplo-4:</strong> O texto não corresponde ao REGEX, sem distinção entre maiúsculas e minúsculas.
                 <br>
-                <code>
-                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;select *
-                    <br>
-                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;from [TABELA]
-                    <br>
-                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;where [COLUNA] !~* '[REGEX]'
-                </code>
-            </p>
+                <div class="code-example ms-5 col-4">
+                    <div class="d-flex justify-content-between bg-secondary-subtle px-3 py-0 border-bottom border-dark-subtle">
+                        <strong><small>SQL</small></strong>
+                        <button type="button" class="cp-btn" onclick="copyText('sql-4')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="bg-body-secondary px-3 py-1 position-relative">
+                        <code>
+                            <strong>
+                                select <span style="color: black;">*</span>
+                                <br>
+                                from <span style="color: black;">[TABELA]</span>
+                                <br>
+                                where <span style="color: black;">[COLUNA] !~* </span> <span style="color: brown;">'[REGEX]'</span>
+                            </strong>
+                        </code>
+                        <div id="sql-4-copied" class="position-absolute top-0 end-0 px-1 m-1 text-white rounded-1" style="background-color: #1b1b1b;" hidden>
+                            <small><tt>copied!</tt></small>
+                        </div>
+                    </div>
+<pre id="sql-4" style="display: none;">select *
+from [TABELA]
+where [COLUNA] !~* '[REGEX]'</pre>
+                </div>
     
             <h4>Operadores:</h4>
             <p>
