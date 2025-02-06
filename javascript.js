@@ -90,6 +90,12 @@ function myFunction() {
     if(deque) regex = regex.concat(descarga(deque));
     deque = [];
     regex = '^('.concat(regex, ')');
-    if(pilha.length > 0 || regex.length <= 3) document.getElementById("saida").innerHTML = "<strong>Erro:</strong> Entrada mal formatada";
-    else document.getElementById("saida").innerHTML = "<strong>REGEX:</strong> <span id='regex'>" + regex + '</span>';
+    if(pilha.length > 0 || regex.length <= 3) {
+        document.getElementById("saida").innerHTML = "<strong>Erro:</strong> Entrada mal formatada";
+        document.getElementById("copy-btn").hidden = false;
+    }
+    else {
+        document.getElementById("saida").innerHTML = "<strong>REGEX:</strong> <span id='regex'>" + regex + '</span>';
+        document.getElementById("copy-btn").hidden = false;
+    }
 }
