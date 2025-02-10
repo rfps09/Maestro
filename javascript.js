@@ -95,7 +95,9 @@ function myFunction() {
         document.getElementById("copy-btn").hidden = false;
     }
     else {
-        document.getElementById("saida").innerHTML = "<strong>REGEX:</strong> <span id='regex'>" + regex + '</span>';
-        document.getElementById("copy-btn").hidden = false;
+        document.getElementById("saida-1").innerHTML = "<strong>REGEX:</strong> <span id='regex-1'>" + regex + "</span>";
+        document.getElementById("saida-2").innerHTML = "<strong>EXEMPLO:</strong> <span id='regex-2'>[COLUNA] ~ '" + regex + "'</span>";
+        document.getElementById("copy-btn-1").hidden = false;
+        document.getElementById("copy-btn-2").hidden = false;
     }
 }

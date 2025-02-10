@@ -34,13 +34,23 @@
                 <button class="btn btn-dark" type="button" onclick="myFunction()">Gerar REGEX</button>
             </div>
         </div>
-        <span id="saida"></span>
-        <button id="copy-btn" type="button" class="cp-btn" onclick="copyText('regex')" hidden>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+        <span id="saida-1"></span>
+        <button id="copy-btn-1" type="button" class="btn btn-dark btn-sm ms-2" onclick="copyText('regex-1')" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy mb-1" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
             </svg>
         </button>
-        <span id="regex-copied" class="px-1 pb-1 mt-1 text-white rounded-1" style="background-color: #1b1b1b;" hidden>
+        <span id="regex-1-copied" class="px-1 pb-1 mt-1 text-white rounded-1" style="background-color: #1b1b1b;" hidden>
+            <small><tt>copied!</tt></small>
+        </span>
+        <br>
+        <span id="saida-2"></span>
+        <button id="copy-btn-2" type="button" class="btn btn-dark btn-sm ms-2" onclick="copyText('regex-2')" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy mb-1" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+            </svg>
+        </button>
+        <span id="regex-2-copied" class="px-1 pb-1 mt-1 text-white rounded-1" style="background-color: #1b1b1b;" hidden>
             <small><tt>copied!</tt></small>
         </span>
     </main>
